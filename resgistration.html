@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      width: 380px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Register</h2>
+
+  <input type="text" id="fullName" placeholder="Enter full name">
+  <input type="text" id="regNumber" placeholder="Enter registration number">
+  <input type="number" id="mobile" placeholder="Enter mobile number">
+  <input type="email" id="email" placeholder="Enter email ID">
+  <input type="text" id="state" placeholder="Enter state">
+  <input type="text" id="country" placeholder="Enter country">
+  <input type="password" id="password" placeholder="Enter password">
+
+  <button onclick="register()">Register</button>
+
+  <div class="message" id="msg"></div>
+</div>
+
+<script>
+  function register() {
+    var userData = {
+      fullName: document.getElementById("fullName").value,
+      regNumber: document.getElementById("regNumber").value,
+      mobile: document.getElementById("mobile").value,
+      email: document.getElementById("email").value,
+      state: document.getElementById("state").value,
+      country: document.getElementById("country").value,
+      password: document.getElementById("password").value
+    };
+
+    var msg = document.getElementById("msg");
+
+    for (var key in userData) {
+      if (userData[key] === "") {
+        msg.innerHTML = "⚠️ Please fill all details";
+        msg.style.color = "red";
+        return;
+      }
+    }
+
+    if (userData.password.length < 6) {
+      msg.innerHTML = "⚠️ Password must be at least 6 characters";
+      msg.style.color = "red";
+      return;
+    }
+
+    localStorage.setItem("userData", JSON.stringify(userData));
+
+    msg.innerHTML = "✅ Registration successful";
+    msg.style.color = "green";
+  }
+</script>
+
+</body>
+</html>
