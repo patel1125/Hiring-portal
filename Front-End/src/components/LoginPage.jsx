@@ -54,85 +54,80 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-900 via-gray-800 to-black">
+        <div className="app-bg">
 
-            <div className="bg-gray-900 border border-gray-700 p-8 rounded-xl shadow-2xl w-95">
+            <div className="auth-card">
 
+                {/* Logo */}
                 <div className="flex justify-center mb-4">
                     <img
                         src="/assets/Logo.png"
                         alt="Hiring Portal Logo"
-                        className="h-30 w-auto drop-shadow-md brightness-110"
+                        className="auth-logo"
                     />
                 </div>
 
-                <h2 className="text-3xl font-bold text-center mb-6 text-white">
-                    {isSignup ? "Create Account" : "Hiring-Portal"}
+                {/* Title */}
+                <h2 className="auth-title">
+                    {isSignup ? "Create Account" : "Welcome Back"}
                 </h2>
 
-                {error && (
-                    <p className="bg-red-500/10 text-red-400 text-sm p-2 rounded mb-4 border border-red-500/20">
-                        {error}
-                    </p>
-                )}
+                {/* Error */}
+                {error && <p className="auth-error">{error}</p>}
 
+                {/* Form */}
                 <form onSubmit={handleSubmit} className="space-y-4">
 
                     {isSignup && (
                         <div>
-                            <label className="block text-sm text-gray-400 mb-1">
-                                Name
-                            </label>
+                            <label className="auth-label">Name</label>
+
                             <input
                                 type="text"
                                 name="name"
                                 placeholder="Enter your name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="auth-input"
                             />
                         </div>
                     )}
 
                     <div>
-                        <label className="block text-sm text-gray-400 mb-1">
-                            Email
-                        </label>
+                        <label className="auth-label">Email</label>
+
                         <input
                             type="email"
                             name="email"
                             placeholder="Enter your email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="auth-input"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm text-gray-400 mb-1">
-                            Password
-                        </label>
+                        <label className="auth-label">Password</label>
+
                         <input
                             type="password"
                             name="password"
                             placeholder="Enter your password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="auth-input"
                         />
                     </div>
 
-                    <button
-                        type="submit"
-                        className="w-full mt-2 bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold transition duration-200 shadow-lg shadow-blue-600/20"
-                    >
+                    <button type="submit" className="auth-btn">
                         {isSignup ? "Sign Up" : "Login"}
                     </button>
 
                 </form>
 
+                {/* Switch */}
                 <p
-                    className="text-center text-sm text-gray-400 mt-6 cursor-pointer hover:text-blue-400 transition"
+                    className="auth-switch"
                     onClick={() => setIsSignup(!isSignup)}
                 >
                     {isSignup
