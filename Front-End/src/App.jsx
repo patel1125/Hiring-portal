@@ -1,12 +1,12 @@
 import React from 'react';
+import Forget_pass from "./Forget_pass.jsx";
 
 const App = () => {
     return (
-        <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-            <h1 className="text-4xl font-bold text-cyan-400">
-                Hiring Portal 🚀 (Tailwind v4)
-            </h1>
-        </div>
+        <>
+        <Forget_pass/>
+        
+        </>
     );
 };
 
