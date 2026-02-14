@@ -1,12 +1,19 @@
 import React from 'react';
-import Forget_pass from "./Forget_pass.jsx";
+import LoginPage from "./components/LoginPage.jsx";
+ import Forget_pass from './components/Forget_pass.jsx';
+
+
+
 
 const App = () => {
     return (
+
         <>
         <Forget_pass/>
+        <LoginPage />
         
         </>
+
     );
 };
 
